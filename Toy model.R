@@ -11,7 +11,7 @@ read.csv("fhWanangChisoTaxonomy for IBM.csv", header=T)->ctfsplot
 read.csv("Ant plant list.csv")->ant.plant.list
 #subset(ctfsplot,!is.na(ctfsplot$species))->ctfsplot
 #subset(ctfsplot,!is.na(ctfsplot$genus))->ctfsplot
-#subset(ant.plant.list$species,ant.plant.list$ant.plant!="n")->ant.plants
+subset(ant.plant.list$species,ant.plant.list$ant.plant!="n")->ant.plants
 subset(ant.plant.list$species,ant.plant.list$ant.plant=="n")->non.ant.plants
 ant.plant<-vector(length=dim(ctfsplot)[1])
 for(i in 1:dim(ctfsplot)[1]){
@@ -146,5 +146,6 @@ for (j in 1:n.steps){
   #if there are no individuals left, stop
   if(abundance[j]==0) break
 }
+
 
 #plot(comm$Y~comm$X,ylim=c(-500,500),xlim=c(-500,500),col=as.factor(comm$Plant.sp))
